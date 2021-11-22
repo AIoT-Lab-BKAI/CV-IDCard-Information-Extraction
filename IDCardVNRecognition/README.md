@@ -9,7 +9,7 @@ Dưới đây là các bước chính của hệ thống:
 ![crop image](./app/flow1_1.png)
 
 Nếu ảnh không được crop (không phát hiện được 4 góc của CMND), hệ thống thực hiện rectify ảnh bằng cách sử dụng text detection để đưa ra các textbox và text classification để
-dự đoán hướng của ảnh, từ đó xoay ảnh về đúng hướng. 
+dự đoán hướng của từng textbox, từ đó xoay ảnh về đúng hướng. 
 
 ![rectify image](./app/flow1_2.png)
 
