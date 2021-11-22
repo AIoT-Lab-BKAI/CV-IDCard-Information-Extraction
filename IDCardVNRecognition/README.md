@@ -26,8 +26,8 @@ dự đoán hướng của từng textbox, từ đó xoay ảnh về đúng hư�
 
 **Clone source code**
 ```
-git clone https://github.com/ndcuong91/MC_OCR.git
-cd IDCardVNRecognition
+git clone https://github.com/AIoT-Lab-BKAI/CV-IDCard-Information-Extraction.git
+cd CV-IDCard-Information-Extraction/IDCardVNRecognition
 ```
 **Cài đặt môi trường Conda**
 ```

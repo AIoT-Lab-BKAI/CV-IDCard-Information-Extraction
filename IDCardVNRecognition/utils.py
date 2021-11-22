@@ -1,5 +1,5 @@
 import os
-
+import numpy
 import gdown
 import yaml
 from pydantic import BaseModel
