@@ -18,6 +18,9 @@ import re
 import streamlit as st
 from PIL import ImageFont, ImageDraw, Image
 
+PAGE_CONFIG = {"page_title":"StColab.io","page_icon":":smiley:","layout":"centered"}
+
+
 cfg = Config.load_config()
 
 cropper = Cropper(config_path=download_weights(cfg['cropper']['cfg']),
@@ -133,7 +136,7 @@ def extract(image, file_name, vis_res=None):
     info['Tên file'] = file_name
     info['Extraction Time'] = str(round(time.time() - begin, 3)) + '(s)'
 
-    if vis_res is not None:
+    if vis_res is not None and isinstance(vis_res, dict):
         if not use_rectify_text:
             vis_res['cropped_image'] = warped
             # cv2.imwrite('/mnt/e/bkai/IDCardVNRecognition/crop.jpg', warped)
@@ -178,7 +181,7 @@ def draw_det_key_box(boxes, img, texts=None):
     return img
 
 
-def main():
+def main2():
     st.title('Identity Card Information Extraction Demo')
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
@@ -228,6 +231,9 @@ def main():
             st.info('Recognize text...')
             time.sleep(0.5)
             st.image(rec_img, width=500)
+
+def main():
+    print(extract(cv2.imread('/content/CV-IDCard-Information-Extraction/IDCardVNRecognition/data/001200019038.png'), '123.png', vis_res=None))
 
 
 if __name__ == '__main__':
