@@ -145,8 +145,8 @@ def extract(image, file_name, vis_res=None):
 
         vis_det_key = draw_det_key_box(info_box, warped.copy(), texts=None)
         vis_rec = draw_det_key_box(info_box, warped.copy(), texts=tmp)
-        # vis_res['detect_key'] = vis_det_key
-        # vis_res['text_recognition'] = vis_rec
+        vis_res['detect_key'] = vis_det_key
+        vis_res['text_recognition'] = vis_rec
 
     print(json.dumps(info, indent=2, ensure_ascii=False))
     return info
