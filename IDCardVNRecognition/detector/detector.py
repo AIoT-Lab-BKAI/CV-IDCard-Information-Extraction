@@ -174,7 +174,7 @@ class Detector:
         b_boxes = self.infer_yolo(aligned_image)
 
         if not len(b_boxes):
-            return None
+            return None, None
         info: dict = self.select_best_bbox(b_boxes)
 
         info_img: Dict[Union[int, Any], Union[List[Any], Any]] = dict()
