@@ -185,9 +185,10 @@ class Detector:
             elif 6 in list(info.keys()):
                 address_bbox = info[6]
                 address_info_dict = self.decode_address(address_bbox)
-                tmp = address_info_dict.copy()
+                
                 if address_info_dict is None:
                     continue
+                tmp = address_info_dict.copy()
 
                 for key in address_info_dict.keys():
                     if key == 'place_of_birth':
