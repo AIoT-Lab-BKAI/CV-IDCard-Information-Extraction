@@ -56,7 +56,7 @@ class CheckQuality:
         preds = nn.Softmax(1)(out)
 
         post_pr = ClsPostProcess(self.classList)
-        post_result = post_pr(preds.clone().detach().numpy())[0]
+        post_result = post_pr(preds.clone().cpu().detach().numpy())[0]
         image = rotate_image_angle(image, int(post_result[0]))
         # image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         if debug:
@@ -68,7 +68,11 @@ class CheckQuality:
 
 def init_box_rectify_model(weight_path):
     classList = ['0', '180']
-    device = torch.device('cpu')
+    # device = torch.device('cpu')
+    if gpu is not None:
+        device = torch.device('cuda:' + gpu)
+    else:
+        device = torch.device('cpu')
     model_ = model(n_class=2, dropout=.2, input_size=64)
     # print('\nModel mobilenetv3')
     # print(model_)
