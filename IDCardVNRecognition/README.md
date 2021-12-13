@@ -38,4 +38,7 @@ conda env create -f environment.yml
 ```
 streamlit run demo.py
 ```
-<i> Note: Có thể điều chỉnh tham số <strong>gpu</strong> trong file <strong>modules/config.py</strong> để sử dụng gpu trong quá trình inference.</i> 
+<i> Note: Để sử dụng gpu trong quá trình inference, cần install package <strong>paddlepaddle-gpu</strong> và điều chỉnh tham số gpu trong file modules/config.py.</i>
+```
+pip install paddlepaddle-gpu
+```
